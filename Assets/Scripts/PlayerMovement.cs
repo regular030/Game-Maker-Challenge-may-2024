@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         float InputX = Input.GetAxis("Horizontal") * SpeedMultiplier;
         body.velocity = new Vector2(InputX, body.velocity.y);
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
                 body.velocity = new Vector2(body.velocity.x, SpeedMultiplier);
         }
