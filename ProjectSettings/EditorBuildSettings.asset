@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectionScreen.unity
     guid: 67ded39600428a3488377e8a7c605aa3
+  - enabled: 1
+    path: Assets/Scenes/Forge.unity
+    guid: ee201fb93b736f14fa4a37e84410be4a
+  - enabled: 1
+    path: Assets/Scenes/Levels.unity
+    guid: 33c709433ada10442850324d5bb57441
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 6a230e7659703a04c91ce01145d097e5
   m_configObjects: {}
