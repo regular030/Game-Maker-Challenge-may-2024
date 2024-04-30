@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float SpeedMultiplier = 10;
     public LayerMask groundLayer;
     private bool isGrounded;
+    public float currentDirection = 1f;
+
 
 
     private void Awake()
@@ -19,8 +21,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
         float InputX = Input.GetAxis("Horizontal") * SpeedMultiplier;
+
+        if (InputX > 0 && currentDirection < 0)
+        {
+        transform.Rotate(0f, 180f, 0f);
+        currentDirection = 1f;
+        }
+
+        else if (InputX < 0 && currentDirection > 0)
+        {
+        transform.Rotate(0f, 180f, 0f);
+        currentDirection = -1f;
+        }
+
         body.velocity = new Vector2(InputX, body.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
