@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private bool isGrounded;
     public float currentDirection = 1f;
+    private Animator anim;
 
 
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -41,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
         {
                 body.velocity = new Vector2(body.velocity.x, SpeedMultiplier);
         }
+
+        anim.SetBool("Running", InputX !=0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,4 +63,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void animm(){
+    }
 }
