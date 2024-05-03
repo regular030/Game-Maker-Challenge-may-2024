@@ -7,6 +7,7 @@ public class Forge : MonoBehaviour
     public GameObject Forgee;
     public GameObject Player;
     public MonoBehaviour PlayerMovement;
+    public MonoBehaviour Shoot;
     Rigidbody2D rb2d; 
 
 
@@ -24,7 +25,7 @@ public class Forge : MonoBehaviour
         {
             Forgee.SetActive(false);
             PlayerMovement.enabled = true;
-            rb2d.bodyType = RigidbodyType2D.Dynamic;
+            //rb2d.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 
@@ -32,7 +33,8 @@ public class Forge : MonoBehaviour
     {
         Forgee.SetActive(false);
         PlayerMovement.enabled = true;
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
+        Shoot.enabled = true;
+        //rb2d.bodyType = RigidbodyType2D.Dynamic;
 
     }
 

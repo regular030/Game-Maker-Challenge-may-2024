@@ -15,4 +15,8 @@ public class SaveData
     public bool key2;
     public bool key3;
     public bool key4;
+
+    public bool shootgun;
+    public bool pistol;
+    public bool AR;
 }

@@ -12,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public float currentDirection = 1f;
     private Animator anim;
+    SaveData SD = new SaveData();
 
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        anim.SetBool("Shotgun?", SD.shootgun == true);
+        anim.SetBool("Pistol?", SD.pistol == true);
+        anim.SetBool("AR?", SD.AR == true);
     }
 
     private void Update()
