@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
 
-
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -41,10 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-                body.velocity = new Vector2(body.velocity.x, SpeedMultiplier);
+            body.velocity = new Vector2(body.velocity.x, SpeedMultiplier);
         }
 
         anim.SetBool("Running", InputX !=0);
+        anim.SetBool("Jumping", !isGrounded == true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
