@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 1360792620418610058}
   - component: {fileID: 5625754054417444460}
   - component: {fileID: 120181843624464668}
+  - component: {fileID: 9150749254463013888}
   - component: {fileID: 6554204284758365102}
   - component: {fileID: 1506190042599445676}
-  - component: {fileID: 7379207035717818931}
-  - component: {fileID: 9213051025419532842}
   - component: {fileID: 8207772564059682632}
+  - component: {fileID: 3235830611644753511}
+  - component: {fileID: 137636667315879848}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,6 +166,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &9150749254463013888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315053620266768268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca404aca74aefd45bf7e3f926ef8d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootingPoint: {fileID: 8224456170526252618}
+  BulletPrefab: {fileID: 7444903859442492725, guid: ebbdca242ff9e4440a9b0268d94d7006, type: 3}
 --- !u!114 &6554204284758365102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,39 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fae9c643e6a2d34992202d714b10d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7379207035717818931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315053620266768268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca404aca74aefd45bf7e3f926ef8d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShootingPoint: {fileID: 8224456170526252618}
-  BulletPrefab: {fileID: 7444903859442492725, guid: ebbdca242ff9e4440a9b0268d94d7006, type: 3}
---- !u!114 &9213051025419532842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315053620266768268}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a1d39f6c94e094796ba090bd9ae60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 8147538755841935073}
-  PlayerMovement: {fileID: 6554204284758365102}
-  InteractorSource: {fileID: 0}
-  Message: {fileID: 0}
-  Forge: {fileID: 0}
-  InteractRange: 5
-  rb: {fileID: 120181843624464668}
 --- !u!95 &8207772564059682632
 Animator:
   serializedVersion: 5
@@ -248,6 +230,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3235830611644753511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315053620266768268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca7bb334b52608419a896271cf27919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 8147538755841935073}
+  PlayerMovement: {fileID: 6554204284758365102}
+  Shoot: {fileID: 9150749254463013888}
+  ForgeMessage: {fileID: 0}
+  Forge: {fileID: 0}
+  ForgeCanvas: {fileID: 0}
+  WeaponMessage: {fileID: 0}
+  Weapon: {fileID: 0}
+  WeaponCanvas: {fileID: 0}
+  InteractRange: 5
+  rb: {fileID: 120181843624464668}
+--- !u!114 &137636667315879848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315053620266768268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b00fdd19f56bf479eca9717af34662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4566156295782485188
 GameObject:
   m_ObjectHideFlags: 0

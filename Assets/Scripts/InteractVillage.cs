@@ -66,6 +66,13 @@ public class InteractVillage : MonoBehaviour
                 Shoot.enabled = false;
                 //rb.bodyType = RigidbodyType2D.Static;
             }
+            else if(distanceWeapon < InteractRange)
+            {
+                WeaponCanvas.SetActive(true);
+                PlayerMovement.enabled = false;
+                Shoot.enabled = false;
+                //rb.bodyType = RigidbodyType2D.Static;
+            }
         }
     }
 }
