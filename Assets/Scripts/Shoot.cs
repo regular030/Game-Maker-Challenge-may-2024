@@ -14,9 +14,9 @@ public class Shoot : MonoBehaviour
     private GameObject bullet;
     private Quaternion Rotation;
 
-    public float BulletShotgunSpeed = 30; 
-    public float BulletPistolSpeed = 30; 
-    public float BulletArSpeed = 30; 
+    public float BulletShotgunSpeed; 
+    public float BulletPistolSpeed; 
+    public float BulletArSpeed; 
 
     public float shotgunDelay = 0.2f;
     public float pistolDelay = 0.1f;
@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
 
     private int shotgunBulletsPerRound = 6;
     private int shotgunBulletsShot = 3;
-    public float shotgunSpreadAngle = 200f;
+    public float shotgunSpreadAngle;
 
     public int ShotgunDMG;
     public int PistolDMG;
@@ -107,13 +107,13 @@ public class Shoot : MonoBehaviour
     public void Shotgun()
     {
         // Fixed angle increment between bullets
-        float angleIncrement = 10f; // Adjust this value to change the spread
+        float angleIncrement = 5f; // Adjust this value to change the spread
 
         // Calculate the initial angle based on the player's direction
         float initialAngle = -90f; // Default angle for right direction
         if (pm.currentDirection == -1f)
         {
-            initialAngle =40f; // Adjust for left direction
+            initialAngle =55f; // Adjust for left direction
         }
 
         // Loop to spawn each bullet
@@ -153,7 +153,7 @@ public class Shoot : MonoBehaviour
         B.Speed = BulletPistolSpeed;
         B.dmg = PistolDMG;
         GameObject bullet = Instantiate(BulletPrefabPistolAR, ShootingPoint.position, Rotation);
-        StartCoroutine(DestroyBulletAfterDelay(bullet, 2f));
+        StartCoroutine(DestroyBulletAfterDelay(bullet, 3f));
     }
 
     public void AR()
