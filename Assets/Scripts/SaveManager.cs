@@ -1,36 +1,24 @@
 using UnityEngine;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveManager : MonoBehaviour
 {
     public static void SaveData(SaveData data)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/save.dat";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-        Debug.Log("saving data");
+        PlayerPrefs.SetString("SaveData", JsonUtility.ToJson(data));
+        PlayerPrefs.Save();
+        Debug.Log("Saving data");
     }
 
     public static SaveData LoadData()
     {
-        string path = Application.persistentDataPath + "/save.dat";
-        if (File.Exists(path))
+        if (PlayerPrefs.HasKey("SaveData"))
         {
-            Debug.Log("loading data");
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            SaveData data = formatter.Deserialize(stream) as SaveData;
-            stream.Close();
-            return data;
+            string json = PlayerPrefs.GetString("SaveData");
+            return JsonUtility.FromJson<SaveData>(json);
         }
         else
         {
-            Debug.LogWarning("Save file not found in " + path);
+            Debug.LogWarning("Save data not found");
             return null;
         }
     }

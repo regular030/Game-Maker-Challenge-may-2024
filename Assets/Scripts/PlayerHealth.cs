@@ -26,4 +26,9 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene(levelToLoad);
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
 }

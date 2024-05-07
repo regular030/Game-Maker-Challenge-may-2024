@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Save the updated SaveData object
-        SaveManager.SaveData(SD);
+        //SaveManager.SaveData(SD);
 
         float InputX = Input.GetAxis("Horizontal") * SpeedMultiplier;
 
