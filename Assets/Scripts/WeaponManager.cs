@@ -7,6 +7,8 @@ public class WeaponManager : MonoBehaviour
     SaveData SD = new SaveData();
     SaveData SDL;
     private Animator anim;
+    
+    public bool shotgun;
 
     private void Awake()
     {
@@ -23,27 +25,25 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-            SD = SaveManager.LoadData(); // Load data into SD
-            if (SD.shootgun == true)
-            {                
-                Debug.Log("anim shot");
-                anim.SetBool("Shotgun", true);
-                anim.SetBool("Pistol", false);
-                anim.SetBool("AR", false);
-            }
-            if (SD.pistol == true)
-            {
-                Debug.Log("anim pistol");
-                anim.SetBool("Shotgun", false);
-                anim.SetBool("Pistol", true);
-                anim.SetBool("AR", false);
-            }
-            if (SD.AR == true)
-            {
-                Debug.Log("anim AR");
-                anim.SetBool("Shotgun", false);
-                anim.SetBool("Pistol", false);
-                anim.SetBool("AR", true);
-            }
+        SD = SaveManager.LoadData(); // Load data into SD
+            
+        if (SD.shootgun == true)
+        {                
+            anim.SetBool("Shotgun", true);
+            anim.SetBool("Pistol", false);
+            anim.SetBool("AR", false);
+        }
+        if (SD.pistol == true)
+        {
+            anim.SetBool("Shotgun", false);
+            anim.SetBool("Pistol", true);
+            anim.SetBool("AR", false);
+        }
+        if (SD.AR == true)
+        {
+            anim.SetBool("Shotgun", false);
+            anim.SetBool("Pistol", false);
+            anim.SetBool("AR", true);
+        }
     }   
 }

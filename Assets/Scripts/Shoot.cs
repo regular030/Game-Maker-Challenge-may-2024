@@ -5,6 +5,7 @@ public class Shoot : MonoBehaviour
 {
     private PlayerMovement pm;
     public Bullet B;
+    public WeaponManager WM;
     SaveData SD = new SaveData();
     SaveData SDL;
 
@@ -38,6 +39,7 @@ public class Shoot : MonoBehaviour
     {
         // Get a reference to the PlayerMovement script attached to the same GameObject
         pm = GetComponent<PlayerMovement>();
+        SD = SaveManager.LoadData();
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetButtonDown("Shoot"))
         {
             shooting = true;
+            SD = SaveManager.LoadData();
             Fire(); // Call Fire method immediately when the shoot button is pressed
         }
         else if (Input.GetButtonUp("Shoot"))
@@ -70,11 +73,13 @@ public class Shoot : MonoBehaviour
 
     void Fire()
     {
+        SD = SaveManager.LoadData();
+
         if (Time.time - lastShotTime >= currentDelay)
         {
             lastShotTime = Time.time;
 
-            if (SD.shootgun == true)
+            if (SD.shootgun == true && SD.pistol == false && SD.AR == false)
             {
                 currentDelay = shotgunDelay;
                 Shotgun();
@@ -106,6 +111,8 @@ public class Shoot : MonoBehaviour
 
     public void Shotgun()
     {
+
+        B.damage = ShotgunDMG;
         // Fixed angle increment between bullets
         float angleIncrement = 5f; // Adjust this value to change the spread
 
@@ -119,7 +126,7 @@ public class Shoot : MonoBehaviour
         // Loop to spawn each bullet
         for (int i = 0; i < shotgunBulletsPerRound; i++)
         {
-            B.dmg = ShotgunDMG;
+            B.damage = ShotgunDMG;
             // Calculate the rotation angle for the current bullet with some variation
             float variation = Random.Range(-5f, 5f); // Adjust the variation to control spread randomness
             float currentAngle = initialAngle + i * angleIncrement + variation;
@@ -151,7 +158,7 @@ public class Shoot : MonoBehaviour
     public void Pistol()
     {
         B.Speed = BulletPistolSpeed;
-        B.dmg = PistolDMG;
+        B.damage = PistolDMG;
         GameObject bullet = Instantiate(BulletPrefabPistolAR, ShootingPoint.position, Rotation);
         StartCoroutine(DestroyBulletAfterDelay(bullet, 3f));
     }
@@ -159,7 +166,7 @@ public class Shoot : MonoBehaviour
     public void AR()
     {
         B.Speed = BulletArSpeed;
-        B.dmg = ArDMG;
+        B.damage = ArDMG;
         GameObject bullet = Instantiate(BulletPrefabPistolAR, ShootingPoint.position, Rotation);
         StartCoroutine(DestroyBulletAfterDelay(bullet, 1f));
     }

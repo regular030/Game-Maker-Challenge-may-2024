@@ -5,8 +5,6 @@ using UnityEngine;
 public class WeaponSwitcher : MonoBehaviour
 {
     SaveData SD = new SaveData();
-    SaveData SDL;
-
     //basic GUI things
     public GameObject Canvas;
     public GameObject Player;
@@ -22,7 +20,9 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject ArButton;
     public GameObject NoArButton;
 
-
+    public bool shootgunn;
+    public bool pistoll;
+    public bool ARR;
     void Start()
     {
         Rigidbody2D rb2d = Player.GetComponent<Rigidbody2D>();
@@ -33,6 +33,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Update()
     {
+        SD = SaveManager.LoadData(); // Load data into SD
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Canvas.SetActive(false);
@@ -40,12 +41,7 @@ public class WeaponSwitcher : MonoBehaviour
             //rb2d.bodyType = RigidbodyType2D.Dynamic;
         }
 
-        SD = SaveManager.LoadData(); // Load data into SD
         buttons();
-        // No need to save SD here
-        Debug.Log("shotgun" + SD.shootgun);
-        Debug.Log("pistol" + SD.pistol);
-        Debug.Log("AR" + SD.AR);
     }
 
 
@@ -94,8 +90,8 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if(SD.HasShootgun == true)
         {
+            SD = SaveManager.LoadData(); // Load data into SD
             Debug.Log("pressed Shotgun");
-
             SD.shootgun = true;
             SD.pistol = false;
             SD.AR = false;
@@ -107,6 +103,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if(SD.HasPistol == true)
         {
+            SD = SaveManager.LoadData(); // Load data into SD
             Debug.Log("pressed Pistol");
             SD.shootgun = false;
             SD.pistol = true;
@@ -119,6 +116,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if(SD.HasAR == true)
         {
+            SD = SaveManager.LoadData(); // Load data into SD
             Debug.Log("pressed AR");
             SD.shootgun = false;
             SD.pistol = false;

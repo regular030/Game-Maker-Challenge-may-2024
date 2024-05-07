@@ -4,12 +4,12 @@ using UnityEngine;
 [Serializable]
 public class SaveData
 {
-    public int scrapMetal;
-    public int coins;
-    public int gold;
-    public int silver;
-    public int copper;
-    public int iron;
+    public int scrapMetal = 0;
+    public int coins = 0;
+    public int gold = 0;
+    public int silver = 0;
+    public int copper = 0;
+    public int iron = 0;
 
     public bool key1;
     public bool key2;

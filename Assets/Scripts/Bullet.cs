@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float Speed;
-    public int dmg;
+    public int damage;
     private Rigidbody2D rb;
 
     void Start()
@@ -14,7 +14,15 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo){
         Debug.Log(hitInfo.name);
+        Debug.Log(damage);
+        Enemy enemy = hitInfo.GetComponent<Enemy>();
+        if(enemy != null){
+            enemy.TakeDamage(damage);
+        }
+        PlayerHealth PlayerHealth = hitInfo.GetComponent<PlayerHealth>();
+        if(PlayerHealth != null){
+            PlayerHealth. TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 }
-                    

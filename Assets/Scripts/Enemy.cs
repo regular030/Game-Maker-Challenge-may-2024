@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Bullet B;
     public Transform player;
     public GameObject bulletPrefab;
     public Transform shootPoint;
@@ -13,13 +14,15 @@ public class Enemy : MonoBehaviour
     private bool canShoot = true;
     private bool left;
     private bool good2go = false;
+    public int dmg = 10;
 
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
+        B.damage = dmg;
     }
 
     void Update()
@@ -96,6 +99,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log("Current Health: " + currentHealth);
         if (currentHealth <= 0)
         {
             Die();
