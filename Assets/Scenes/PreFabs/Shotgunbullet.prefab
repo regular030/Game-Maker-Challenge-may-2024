@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2532187813341710372}
   - component: {fileID: 400965588357755166}
   - component: {fileID: 541872094780516976}
-  - component: {fileID: 1920623760484011945}
   - component: {fileID: 1629865519471353656}
-  m_Layer: 0
+  - component: {fileID: 914193132173903880}
+  m_Layer: 8
   m_Name: Shotgunbullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,8 +114,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &1920623760484011945
-PolygonCollider2D:
+--- !u!114 &1629865519471353656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444903859442492725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0187b8eef9a7d6d47a44f4d08c39e1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 25
+  dmg: 0
+--- !u!61 &914193132173903880
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,7 +143,7 @@ PolygonCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -144,7 +158,7 @@ PolygonCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -156,22 +170,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 0
---- !u!114 &1629865519471353656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444903859442492725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0187b8eef9a7d6d47a44f4d08c39e1b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 25
+  serializedVersion: 2
+  m_Size: {x: 0.33333334, y: 1}
+  m_EdgeRadius: 0
