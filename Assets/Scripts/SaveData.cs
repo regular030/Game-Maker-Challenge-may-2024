@@ -17,8 +17,8 @@ public class SaveData
     public bool key4;
 
     public bool shootgun = true;
-    public bool pistol;
-    public bool AR;
+    public bool pistol = false;
+    public bool AR = false;
     public bool HasShootgun = true;
     public bool HasPistol = true; 
     public bool HasAR = true;
