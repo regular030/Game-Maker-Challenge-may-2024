@@ -91,7 +91,6 @@ public class WeaponSwitcher : MonoBehaviour
         if(SD.HasShootgun == true)
         {
             SD = SaveManager.LoadData(); // Load data into SD
-            Debug.Log("pressed Shotgun");
             SD.shootgun = true;
             SD.pistol = false;
             SD.AR = false;
