@@ -14,12 +14,19 @@ public class InteractVillage : MonoBehaviour
     public Transform Player;
     public MonoBehaviour PlayerMovement;
     public MonoBehaviour Shoot;
+
     public GameObject ForgeMessage;
     public Transform Forge;
     public GameObject ForgeCanvas;
+
     public GameObject WeaponMessage;
     public Transform Weapon;
     public GameObject WeaponCanvas;
+
+    public GameObject VillagerMessage;
+    public Transform Villager;
+    public GameObject VillagerCanvas;
+
     public float InteractRange;
     public Rigidbody2D rb;
     // Start is called before the first frame update
@@ -27,7 +34,10 @@ public class InteractVillage : MonoBehaviour
     {
         ForgeMessage.SetActive(false);
         WeaponMessage.SetActive(false);
-        ForgeCanvas.SetActive(false );
+        VillagerMessage.SetActive(false);
+
+        VillagerCanvas.SetActive(false);
+        ForgeCanvas.SetActive(false);
         WeaponCanvas.SetActive(false);
     }
 
@@ -36,6 +46,7 @@ public class InteractVillage : MonoBehaviour
     {
         float distanceForge = Vector3.Distance(Player.position, Forge.position);
         float distanceWeapon = Vector3.Distance(Player.position, Weapon.position);
+        float distanceVillager = Vector3.Distance(Player.position, Villager.position);
 
         if (distanceForge < InteractRange) 
         {
@@ -55,6 +66,15 @@ public class InteractVillage : MonoBehaviour
             WeaponMessage.SetActive(false);
         }
 
+        if(distanceVillager < InteractRange)
+        {
+            VillagerMessage.SetActive(true);
+        }
+        else
+        {
+            VillagerMessage.SetActive(false);
+        }
+
 
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -72,6 +92,12 @@ public class InteractVillage : MonoBehaviour
                 PlayerMovement.enabled = false;
                 Shoot.enabled = false;
                 //rb.bodyType = RigidbodyType2D.Static;
+            }
+            else if(distanceVillager < InteractRange)
+            {
+                VillagerCanvas.SetActive(true);
+                PlayerMovement.enabled = false;
+                Shoot.enabled = false;
             }
         }
     }

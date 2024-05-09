@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   B: {fileID: 1629865519471353656, guid: ebbdca242ff9e4440a9b0268d94d7006, type: 3}
+  WM: {fileID: 137636667315879848}
   ShootingPoint: {fileID: 8224456170526252618}
   BulletPrefabShotgun: {fileID: 7444903859442492725, guid: bfcadd669f7116144b569fd57ad36ebb, type: 3}
   BulletPrefabPistolAR: {fileID: 7444903859442492725, guid: ebbdca242ff9e4440a9b0268d94d7006, type: 3}
@@ -253,7 +254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2315053620266768268}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ca7bb334b52608419a896271cf27919, type: 3}
   m_Name: 
@@ -267,6 +268,9 @@ MonoBehaviour:
   WeaponMessage: {fileID: 0}
   Weapon: {fileID: 0}
   WeaponCanvas: {fileID: 0}
+  VillagerMessage: {fileID: 0}
+  Villager: {fileID: 0}
+  VillagerCanvas: {fileID: 0}
   InteractRange: 5
   rb: {fileID: 120181843624464668}
 --- !u!114 &137636667315879848
@@ -281,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b00fdd19f56bf479eca9717af34662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shotgun: 0
 --- !u!114 &7059897562764676730
 MonoBehaviour:
   m_ObjectHideFlags: 0
