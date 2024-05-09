@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int spawnDis; // Spawn distance
     public float bulletSpeed = 20f;
     public float shootInterval = 0.5f; // Time between each shot
+    public float shootDistance;
     public float moveSpeed;
     private float lastShootTime;
     private bool canShoot = true;
@@ -19,10 +20,15 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    private Vector3 initialScale; // Store the initial scale of the enemy
+
     void Start()
     {
         currentHealth = maxHealth;
         B.damage = dmg;
+
+        // Store the initial scale of the enemy
+        initialScale = transform.localScale;
     }
 
     void Update()
@@ -37,7 +43,7 @@ public class Enemy : MonoBehaviour
         }
 
         // Check if the enemy can shoot and is within shooting range
-        if (canShoot && distanceToPlayer <= 5f && Time.time - lastShootTime >= shootInterval)
+        if (canShoot && distanceToPlayer <= shootDistance && Time.time - lastShootTime >= shootInterval)
         {
             Shoot();
             lastShootTime = Time.time;
@@ -47,22 +53,22 @@ public class Enemy : MonoBehaviour
         if (player.position.x < transform.position.x)
         {
             // Player is to the left, flip the enemy
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-initialScale.x, initialScale.y, initialScale.z);
             left = true;
         }
         else
         {
             // Player is to the right, flip the enemy back
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = initialScale;
             left = false;
         }
 
-        if(good2go == true){
-        // Move towards the player
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        if (good2go)
+        {
+            // Move towards the player
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
         }
     }
-
 
     void Shoot()
     {
@@ -71,11 +77,12 @@ public class Enemy : MonoBehaviour
         if (player.position.x < transform.position.x)
         {
             // Player is to the left, rotate the bullet by 90 degrees
-            if(left == true)
+            if (left)
             {
                 bullet.transform.Rotate(Vector3.forward, 90f);
             }
-            else if (left == false){
+            else
+            {
                 bullet.transform.Rotate(Vector3.forward, 90f);
             }
             // Calculate direction towards player

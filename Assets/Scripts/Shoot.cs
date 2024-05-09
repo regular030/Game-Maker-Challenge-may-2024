@@ -126,7 +126,6 @@ public class Shoot : MonoBehaviour
         // Loop to spawn each bullet
         for (int i = 0; i < shotgunBulletsPerRound; i++)
         {
-            B.damage = ShotgunDMG;
             // Calculate the rotation angle for the current bullet with some variation
             float variation = Random.Range(-5f, 5f); // Adjust the variation to control spread randomness
             float currentAngle = initialAngle + i * angleIncrement + variation;

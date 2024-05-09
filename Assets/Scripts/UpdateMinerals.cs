@@ -15,7 +15,7 @@ public class UpdateMinerals : MonoBehaviour
     {
         // Load the SaveData object
         SD = SaveManager.LoadData(); // Load data into SD
-        SD.gold = 10; //works + saves
+        //SD.gold = 10; //works + saves
         SaveManager.SaveData(SD);
         
     }

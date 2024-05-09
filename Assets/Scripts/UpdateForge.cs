@@ -15,11 +15,6 @@ public class UpdateForge : MonoBehaviour
     {
         // Load the SaveData object
         SD = SaveManager.LoadData(); // Load data into SD
-        SD.scrapMetal = 10;
-        SD.gold = 10; //works + saves
-        SD.silver = 10;
-        SD.copper = 10;
-        SD.iron = 10;
         SaveManager.SaveData(SD);
         
     }
